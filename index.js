@@ -1,4 +1,5 @@
 const express = require('express');
+const methodOverride = require('method-override');
 const app = express();
 require("dotenv").config();
 const systemVariable = require("./config/system.js");
@@ -9,6 +10,9 @@ const port = process.env.PORT;
 
 app.set("views", "./views");
 app.set("view engine", "pug");
+
+// Method Override
+app.use(methodOverride('_method'));
 
 app.locals.prefixAdmin = systemVariable.prefixAdmin; // khai baó như này thì biến prefixAdmin sẽ tồn tại trong tất cả các templates
 

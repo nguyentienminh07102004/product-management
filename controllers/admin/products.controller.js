@@ -3,6 +3,7 @@ const filterStatus = require("../../helpers/filter-status.js");
 const keywordSearch = require("../../helpers/search.js");
 const pagination = require("../../helpers/pagination.js");
 
+// [GET] /admin/products
 const index = async (req, res) => {
   let find = {
     deleted: false
@@ -39,5 +40,15 @@ const index = async (req, res) => {
     pagination: objectPagination
   });
 }
-// [GET] /admin/products
-module.exports = { index };
+
+const changeStatus = async (req, res) => {
+  const status = req.params.status;
+  const id = req.params.id;
+
+  await Products.updateOne({ _id: id }, { status: status });
+
+  res.redirect('back');
+
+}
+
+module.exports = { index, changeStatus };
