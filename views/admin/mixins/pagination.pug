@@ -1,0 +1,19 @@
+mixin pagination(pagination)
+  nav
+    ul(class="pagination")
+      if(pagination.currentPage > 1)
+        li(class="page-item")
+          button(
+            class="page-link"
+            button-page=1) First 
+      -for(let index = (pagination.currentPage === 1 ? 0 : -1); index <= (pagination.currentPage === pagination.totalPage ? 0 : 1); index++)
+        li(class=`page-item  ${index === 0 ? "active" : ""}`)
+          button(
+              class=`page-link`
+              button-page=`${pagination.currentPage + index}`
+              ) #{pagination.currentPage + index}
+      if(pagination.currentPage < pagination.totalPage)
+        li(class="page-item")
+          button(
+            class="page-link"
+            button-page=`${pagination.totalPage}`) Last
