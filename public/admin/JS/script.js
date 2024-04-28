@@ -40,3 +40,61 @@ if(buttonPagination){
     });
   });
 }
+
+// Checkbox multi
+const checkboxMulti = document.querySelector("[checkbox-multi]");
+if(checkboxMulti){
+  const inputCheckAll = checkboxMulti.querySelector("input[name='checkall']");
+  const inputIDs = checkboxMulti.querySelectorAll("input[name='id']");
+
+  inputCheckAll.addEventListener('click', () => {
+    if(inputCheckAll.checked){
+      inputIDs.forEach(checkbox => {
+        checkbox.checked = true;
+      });
+    }else{
+      inputIDs.forEach(checkbox => {
+        checkbox.checked = false;
+      });
+    }
+  });
+
+  inputIDs.forEach(input => {
+    input.addEventListener("click", () => {
+      const countChecked = checkboxMulti.querySelectorAll("input[name='id']:checked").length;
+      if(countChecked === inputIDs.length){
+        inputCheckAll.checked = true;
+      }else{
+        inputCheckAll.checked = false;
+      }
+    });
+  });
+}
+// End checkbox multi
+
+// Form change multi
+const formChangeMulti = document.querySelector("[form-change-multi]");
+if(formChangeMulti){
+  formChangeMulti.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    const checkboxMulti = document.querySelector("[checkbox-multi]");
+    const inputChecked = checkboxMulti.querySelectorAll("input[name='id']:checked");
+    let ids = new Array();
+    let inputIds = formChangeMulti.querySelector("input[name='ids']");
+    if(inputChecked.length > 0){
+
+      inputChecked.forEach(input => {
+        let id = input.getAttribute('value');
+        ids.push(id);
+      });
+
+      inputIds.value = ids.join(", ");
+
+      formChangeMulti.submit();
+    }else{
+      window.alert("Please choose product you want to change status");
+    }
+    
+  });
+}
+// End form change multi

@@ -51,4 +51,22 @@ const changeStatus = async (req, res) => {
 
 }
 
-module.exports = { index, changeStatus };
+const changeMulti = async (req, res) => {
+  let ids = req.body.ids.split(", ");
+  let type = req.body.type;
+
+  // switch (type) {
+  //   case "inactive":
+      
+  //     break;
+  //   case "active":
+
+  //     break;
+  //   default:
+  //     break;
+  // }
+
+  await Products.updateMany({_id: ids}, {status: type});
+  res.redirect("back");
+}
+module.exports = { index, changeStatus, changeMulti };

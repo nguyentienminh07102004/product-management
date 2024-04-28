@@ -1,5 +1,7 @@
 const express = require('express');
 const methodOverride = require('method-override');
+const bodyParse = require('body-parser');
+
 const app = express();
 require("dotenv").config();
 const systemVariable = require("./config/system.js");
@@ -15,6 +17,9 @@ app.set("view engine", "pug");
 app.use(methodOverride('_method'));
 
 app.locals.prefixAdmin = systemVariable.prefixAdmin; // khai baó như này thì biến prefixAdmin sẽ tồn tại trong tất cả các templates
+
+// Sử dụng body parser cho form
+app.use(bodyParse.urlencoded({extended: false}));
 
 database.connect();
 
