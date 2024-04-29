@@ -30,7 +30,7 @@ const index = async (req, res) => {
   pagination(objectPagination, req.query, countProducts);
   // Tìm kiếm sản phẩm
   // Limit là giới hạn số sản phẩm tìm được còn skip là bỏ qua n sản phẩm để tìm từ sản phẩm tiếp theo. => Phân trang chia trang bằng limit và chuyển trang bằng skip
-  let products = await Products.find(find).limit(objectPagination.limitItem).skip(objectPagination.skip);
+  let products = await Products.find(find).sort({ position: "desc" }).limit(objectPagination.limitItem).skip(objectPagination.skip);
 
   res.render("admin/pages/products/index.pug", {
     title: "Products Admin Page",
@@ -62,6 +62,12 @@ const changeMulti = async (req, res) => {
       break;
     case "delete-all":
       await Products.updateMany({ _id: ids }, { deleted: true, deletedAtTime: new Date() });
+      break;
+    case "change-position":
+      for(item of ids){
+        let [id, position] = item.split("-");
+        await Products.updateOne({ _id: id }, { position: position });
+      }
       break;
     default:
       break;

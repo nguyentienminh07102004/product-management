@@ -94,6 +94,11 @@ if(formChangeMulti){
 
       inputChecked.forEach(input => {
         let id = input.getAttribute('value');
+
+        if(typeChange === 'change-position'){
+          const position = input.closest('tr').querySelector("input[name='position']").value;
+          id += ('-' + position);
+        }
         ids.push(id);
       });
 

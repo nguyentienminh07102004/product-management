@@ -5,7 +5,7 @@ module.exports.index = async (req, res) => {
   const products = await Products.find({
     status: "active",
     deleted: false
-  }); // Lấy ra tất cả các dữ liệu theo điều kiện nhập vào, nếu không có điều kiện thì nó sẽ lấy tất cả
+  }).sort({ position: "desc" }); // Lấy ra tất cả các dữ liệu theo điều kiện nhập vào, nếu không có điều kiện thì nó sẽ lấy tất cả
   console.log(products);
 
   let newProducts = products.map(value => {

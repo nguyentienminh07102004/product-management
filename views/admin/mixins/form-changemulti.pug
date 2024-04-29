@@ -5,7 +5,8 @@ mixin formChangeMulti(path)
         select(name="type" class="form-control")
           option(value="active") Active
           option(value="inactive") Inactive
-          option(value="delete-all") Delete All 
+          option(value="delete-all") Delete All
+          option(value="change-position") Change Position 
       div(class="form-group")
         input(type="text" name="ids" value="" class="form-control d-none")
       button(type="submit" class="btn btn-primary") Apply

@@ -30,6 +30,7 @@ block main
             th Image 
             th Title 
             th Price
+            th Position
             th Status 
             th Active 
 
@@ -44,6 +45,8 @@ block main
                     width="100px" height="auto")
               td #{item.title}
               td #{item.price}$
+              td
+                input(type="number" value=item.position style="width: 60px" min="1" name="position")
               td 
                 if item.status === "active"
                   a(href="javascript:;" 
