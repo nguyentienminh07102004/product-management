@@ -74,7 +74,10 @@ const deleteProduct = async (req, res) => {
   const id = req.params.id;
 
   // await Products.deleteOne({ _id: id});
-  await Products.updateOne({ _id: id }, { deleted: true });
+  await Products.updateOne({ _id: id }, { 
+    deleted: true,
+    deletedAtTime: new Date()
+  });
 
   res.redirect('back');
 }
