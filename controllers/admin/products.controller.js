@@ -73,7 +73,8 @@ const changeMulti = async (req, res) => {
 const deleteProduct = async (req, res) => {
   const id = req.params.id;
 
-  await Products.deleteOne({ _id: id });
+  // await Products.deleteOne({ _id: id});
+  await Products.updateOne({ _id: id }, { deleted: true });
 
   res.redirect('back');
 }
