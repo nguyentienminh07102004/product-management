@@ -23,7 +23,7 @@ const index = async (req, res) => {
   }
 
   let objectPagination = {
-    limitItem: 2,
+    limitItem: 4,
     currentPage: 1
   };
   const countProducts = await Products.countDocuments(find);
@@ -55,18 +55,18 @@ const changeMulti = async (req, res) => {
   let ids = req.body.ids.split(", ");
   let type = req.body.type;
 
-  // switch (type) {
-  //   case "inactive":
-      
-  //     break;
-  //   case "active":
+  switch (type) {
+    case "inactive":
+    case "active":
+      await Products.updateMany({ _id: ids }, { status: type });
+      break;
+    case "delete-all":
+      await Products.updateMany({ _id: ids }, { deleted: true, deletedAtTime: new Date() });
+      break;
+    default:
+      break;
+  }
 
-  //     break;
-  //   default:
-  //     break;
-  // }
-
-  await Products.updateMany({_id: ids}, {status: type});
   res.redirect("back");
 }
 
