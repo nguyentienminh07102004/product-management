@@ -20,3 +20,22 @@ if(buttonsChangeStatus.length > 0){
   });
 } 
 // End change status
+
+// Delete item
+const buttonDelete = window.document.querySelectorAll("[button-delete]");
+if(buttonDelete.length > 0){
+  buttonDelete.forEach(button => {
+    const formDelete = document.querySelector('#form-delete-product');
+    const path = formDelete.getAttribute('data-path');
+    button.addEventListener("click", () => {
+      const isConfirm = window.confirm("Do you want to delete this product ?");
+      if(isConfirm){
+        const id = button.getAttribute("data-id");
+        const action = path + "/" + id + "?_method=DELETE";
+        formDelete.action = action;
+        formDelete.submit();
+      }
+    });
+  })
+}
+// End delete item

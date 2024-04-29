@@ -69,4 +69,12 @@ const changeMulti = async (req, res) => {
   await Products.updateMany({_id: ids}, {status: type});
   res.redirect("back");
 }
-module.exports = { index, changeStatus, changeMulti };
+
+const deleteProduct = async (req, res) => {
+  const id = req.params.id;
+
+  await Products.deleteOne({ _id: id });
+
+  res.redirect('back');
+}
+module.exports = { index, changeStatus, changeMulti, deleteProduct };
