@@ -65,6 +65,7 @@ const changeMulti = async (req, res) => {
       break;
     case "delete-all":
       await Products.updateMany({ _id: ids }, { deleted: true, deletedAtTime: new Date() });
+      req.flash('success', `Delete ${ids.length} ${ids.length > 1 ? "products" : "product"} successfully`);
       break;
     case "change-position":
       for(item of ids){
@@ -87,7 +88,7 @@ const deleteProduct = async (req, res) => {
     deleted: true,
     deletedAtTime: new Date()
   });
-
+  req.flash('success', 'Delete product successfully');
   res.redirect('back');
 }
 module.exports = { index, changeStatus, changeMulti, deleteProduct };
