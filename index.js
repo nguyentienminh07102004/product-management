@@ -1,6 +1,9 @@
 const express = require('express');
 const methodOverride = require('method-override');
 const bodyParse = require('body-parser');
+const flash = require('express-flash');
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 
 const app = express();
 require("dotenv").config();
@@ -12,6 +15,12 @@ const port = process.env.PORT;
 
 app.set("views", "./views");
 app.set("view engine", "pug");
+
+// Flash
+app.use(cookieParser("keyboard cat"));
+app.use(session({ cookie: { maxAge: 600000 } }));
+app.use(flash());
+// End flash
 
 // Method Override
 app.use(methodOverride('_method'));

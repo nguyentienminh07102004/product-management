@@ -47,6 +47,8 @@ const changeStatus = async (req, res) => {
 
   await Products.updateOne({ _id: id }, { status: status });
 
+  req.flash("success", "Change status successfully");
+
   res.redirect('back');
 
 }
@@ -59,6 +61,7 @@ const changeMulti = async (req, res) => {
     case "inactive":
     case "active":
       await Products.updateMany({ _id: ids }, { status: type });
+      req.flash('success', `Change status for ${ids.length} successfully`);
       break;
     case "delete-all":
       await Products.updateMany({ _id: ids }, { deleted: true, deletedAtTime: new Date() });

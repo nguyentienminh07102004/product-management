@@ -3,10 +3,11 @@ include ../../mixins/buttonStatus
 include ../../mixins/search.pug
 include ../../mixins/pagination.pug
 include ../../mixins/form-changemulti.pug
+include ../../mixins/alert.pug
 
 block main 
   h1 This is Products Admin Page
-
+  +alert(5000)
   div(class="card mb-3")
     div(class="card-header") Filter and Search
     div(class="card-body")
