@@ -72,6 +72,7 @@ const changeMulti = async (req, res) => {
         let [id, position] = item.split("-");
         await Products.updateOne({ _id: id }, { position: position });
       }
+      req.flash('success', 'Change position successfully');
       break;
     default:
       break;
