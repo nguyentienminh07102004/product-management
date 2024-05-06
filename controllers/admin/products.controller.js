@@ -53,6 +53,7 @@ const changeStatus = async (req, res) => {
 
 }
 
+// [PATCH] /admin/products/chnage-multi
 const changeMulti = async (req, res) => {
   let ids = req.body.ids.split(", ");
   let type = req.body.type;
@@ -81,6 +82,7 @@ const changeMulti = async (req, res) => {
   res.redirect("back");
 }
 
+//[DELETE] /admin/products/delete/:id
 const deleteProduct = async (req, res) => {
   const id = req.params.id;
 
@@ -92,4 +94,54 @@ const deleteProduct = async (req, res) => {
   req.flash('success', 'Delete product successfully');
   res.redirect('back');
 }
-module.exports = { index, changeStatus, changeMulti, deleteProduct };
+
+// [GET] /admin/products/create
+const create = (req, res) => {
+  res.render("admin/pages/products/create", {
+    title: "Create Product"
+  });
+}
+
+// [POST] /admin/products/createProduct
+const createProduct = async (req, res) => {
+  // Cập nhật lại giá trị cho price, discount và stock là kiểu number
+  req.body.price = parseInt(req.body.price);
+  req.body.stock = parseInt(req.body.stock);
+  req.body.discountPercentage = parseInt(req.body.discountPercentage);
+
+  // Check xem position có bằng rỗng không để auto tăng
+  if(!req.body.position){
+    // Lấy ra số lượng sản phẩm trong db
+    const countProducts = await Products.countDocuments();
+
+    // cập nhật lại position bằng count + 1
+    req.body.position = countProducts + 1;
+  }else {
+    // ép lại kiểu sang dạng number
+    req.body.position = parentInt(req.body.position);
+  }
+  
+  // Thêm 1 trường là deleted = false vào database
+  // -> req.body.deleted = false;
+  // Như trong video thì làm trong model
+
+
+  // Insert products vào db và tạo ra flash báo thành công
+  // Tạo mới sản phẩm
+  try{
+    
+    const product = new Products(req.body); // Tạo ra sản phẩm rồi nhưng chưa lưu
+    await product.save(); // Lưu vào products
+
+    // flash thành công
+    req.flash('success', "Add product to database successly");
+
+  } catch(error) {
+    // flash thất bại
+    req.flash('success', "Add product failed");
+  } finally{
+    res.redirect('back');
+  }
+}
+
+module.exports = { index, changeStatus, changeMulti, deleteProduct, create, createProduct };

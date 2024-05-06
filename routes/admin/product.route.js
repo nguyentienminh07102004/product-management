@@ -10,4 +10,8 @@ route.patch("/change-multi", controller.changeMulti);
 
 route.delete("/delete/:id", controller.deleteProduct);
 
+// create products
+route.get('/create', controller.create);
+route.post('/create', controller.createProduct);
+
 module.exports = route;

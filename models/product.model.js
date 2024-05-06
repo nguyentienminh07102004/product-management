@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const slug = require('mongoose-slug-updater');
+
+mongoose.plugin(slug);
 
 const productSchema = new mongoose.Schema(
   {
@@ -10,8 +13,19 @@ const productSchema = new mongoose.Schema(
     thumbnail: String,
     status: String,
     position: Number,
-    deleted: Boolean,
-    deletedAtTime: Date
+    deleted: {
+      type: Boolean,
+      default: false
+    },
+    deletedAtTime: Date,
+    slug : { 
+      type: String, 
+      slug: "title",
+      unique: true
+    }
+  },
+  {
+    timestamps: true // thêm timestamps vào để có thêm 2 trường là createdAt và updateAt đây là tính năng của mongoose
   }
 );
 

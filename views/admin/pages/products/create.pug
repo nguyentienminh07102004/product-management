@@ -1,0 +1,45 @@
+extends ../../layouts/default.pug
+
+block main 
+  h1(class='mb-4') Add products
+
+  form(action=`${prefixAdmin}/products/create` id="form-create-product" method="post") 
+    div(class='form-group')
+      div(class='label' for='title') Title 
+      input(type="text", name="title" id='title' required class='form-control')
+
+    div(class='form-group')
+      label(for="desc") Describle 
+      textarea(name="description" rows='5' id='desc' class='form-control')
+
+    div(class='form-group')
+      label(for="price") Price
+      input(name="price" type='number' id='price' min='0' value='0' class='form-control')
+
+    div(class='form-group')
+      label(for="discountPercentage") Discount percentage
+      input(name="discountPercentage" type='number' id='discountPercentage' min='0' value='0' class='form-control')
+
+    div(class='form-group')
+      label(for="stock") Stock
+      input(name="stock" type='number' id='stock' min='0' value='0' class='form-control')
+
+    div(class='form-group')
+      label(for='thumbnail') Thumbnail
+      input(type='text' class='form-control' id='thumbnail' name='thumbnail')
+
+    div(class='form-group')
+      label(for='position') Position 
+      input(type='number' class='form-control' id='position' name='position' placeholder='Auto' min='1')
+
+    div(class='form-group form-check form-check-inline')
+      input(type='radio' class='form-check-input' id='statusActive' name='status' value='active' checked)
+      label(for='statusActive' class='form-check-input') Active
+
+    div(class='form-group form-check form-check-inline')
+      input(type='radio' class='form-check-input' id='statusInactive' name='status' value='inactive')
+      label(for='statusInactive' class='form-check-input') Inactive
+
+    div(class='form-group')
+      button(type='submit' class='btn btn-success') CREATE
+  script(src="/admin/JS/products.js") 

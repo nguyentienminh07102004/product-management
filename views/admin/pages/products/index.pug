@@ -7,7 +7,9 @@ include ../../mixins/alert.pug
 
 block main 
   h1 This is Products Admin Page
+  
   +alert(5000)
+
   div(class="card mb-3")
     div(class="card-header") Filter and Search
     div(class="card-body")
@@ -21,7 +23,11 @@ block main
   div(class="card mb-3")
     div(class="card-header") Products List 
     div(class="card-body")
-      +formChangeMulti(`${prefixAdmin}/products/change-multi?_method=PATCH`)
+      div(class="row")
+        div(class="col-8")
+          +formChangeMulti(`${prefixAdmin}/products/change-multi?_method=PATCH`)
+        div(class="col-4")
+          a(href=`${prefixAdmin}/products/create` class='btn btn-outline-success') + Add product
       table(class="table table-hover table-sm" checkbox-multi)
         thead 
           tr 
