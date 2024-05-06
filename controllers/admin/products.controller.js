@@ -32,6 +32,8 @@ const index = async (req, res) => {
   // Limit là giới hạn số sản phẩm tìm được còn skip là bỏ qua n sản phẩm để tìm từ sản phẩm tiếp theo. => Phân trang chia trang bằng limit và chuyển trang bằng skip
   let products = await Products.find(find).sort({ position: "desc" }).limit(objectPagination.limitItem).skip(objectPagination.skip);
 
+  console.log(products);
+
   res.render("admin/pages/products/index.pug", {
     title: "Products Admin Page",
     products: products,
@@ -125,6 +127,8 @@ const createProduct = async (req, res) => {
   // -> req.body.deleted = false;
   // Như trong video thì làm trong model
 
+  // Chèn link ảnh vào
+  req.body.thumbnail = `/admin/uploads/${req.file.filename}`;
 
   // Insert products vào db và tạo ra flash báo thành công
   // Tạo mới sản phẩm
