@@ -126,3 +126,20 @@ if(showAlert){
   }, time);
 }
 // End show alert
+
+
+// preview image in createPage
+const uploadImage = document.querySelector('[upload-image]');
+if(uploadImage){
+  const uploadImageInput = uploadImage.querySelector('[upload-image-input]');
+  const uploadImagePreview = uploadImage.querySelector('[upload-image-preview]');
+
+  uploadImageInput.addEventListener('change', (evt) => {
+    console.log(evt.target.files);
+    const file = evt.target.files[0];
+    if(file){
+      uploadImagePreview.src = URL.createObjectURL(file);
+    }
+  });
+}
+// End preview image in createPage

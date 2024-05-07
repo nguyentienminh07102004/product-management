@@ -27,13 +27,12 @@ const index = async (req, res) => {
     currentPage: 1
   };
   const countProducts = await Products.countDocuments(find);
+
   pagination(objectPagination, req.query, countProducts);
   // Tìm kiếm sản phẩm
   // Limit là giới hạn số sản phẩm tìm được còn skip là bỏ qua n sản phẩm để tìm từ sản phẩm tiếp theo. => Phân trang chia trang bằng limit và chuyển trang bằng skip
-  let products = await Products.find(find).sort({ position: "desc" }).limit(objectPagination.limitItem).skip(objectPagination.skip);
-
-  console.log(products);
-
+  let products = await Products.find(find).limit(objectPagination.limitItem).skip(objectPagination.skip).sort({position: -1, updatedAt: -1});
+  
   res.render("admin/pages/products/index.pug", {
     title: "Products Admin Page",
     products: products,
@@ -120,7 +119,8 @@ const createProduct = async (req, res) => {
     req.body.position = countProducts + 1;
   }else {
     // ép lại kiểu sang dạng number
-    req.body.position = parentInt(req.body.position);
+    //console.log(req.body.position);
+    req.body.position = parseInt(req.body.position);
   }
   
   // Thêm 1 trường là deleted = false vào database
