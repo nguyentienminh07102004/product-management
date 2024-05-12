@@ -2,6 +2,7 @@ const Products = require("../../models/product.model.js");
 const filterStatus = require("../../helpers/filter-status.js");
 const keywordSearch = require("../../helpers/search.js");
 const pagination = require("../../helpers/pagination.js");
+const systemConfig = require('../../config/system.js');
 
 // [GET] /admin/products
 const index = async (req, res) => {
@@ -156,4 +157,44 @@ const createProduct = async (req, res) => {
   }
 }
 
-module.exports = { index, changeStatus, changeMulti, deleteProduct, create, createProduct };
+// [GET] /admin/products/edit/:id
+const edit = async (req, res) => {
+  try{
+    const find = {
+      deleted: false,
+      _id: req.params.id
+    }
+  
+    const product = await Products.findOne(find);
+  
+    res.render('admin/pages/products/edit.pug', {
+      title: "Edit products",
+      product: product
+    });
+  } catch(error) {
+    req.flash('error', "Don't have this product with id = " + `${req.params.id}`)
+    res.redirect(`${systemConfig.prefixAdmin}/products`);
+  }
+}
+// [PATCH] /admin/products/edit/:id
+const updateProduct = async (req, res) => {
+  try{
+    req.body.price = parseFloat(req.body.price);
+    req.body.discountPercentage = parseFloat(req.body.discountPercentage);
+    req.body.stock = parseInt(req.body.stock);
+    req.body.position = parseInt(req.body.position);
+
+    if(req.file){
+      req.body.thumbnail = `/admin/uploads/${req.file.filename}`;
+    }
+
+    await Products.updateOne({ _id: req.params.id }, req.body);
+    req.flash('success', 'Update Successfully');
+  }catch(error){
+    req.flash('error', 'Update failed');
+  }finally{
+    res.redirect('back');
+  }
+}
+
+module.exports = { index, changeStatus, changeMulti, deleteProduct, create, createProduct, edit, updateProduct };

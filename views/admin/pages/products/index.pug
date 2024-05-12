@@ -9,6 +9,7 @@ block main
   h1 This is Products Admin Page
   
   +alert-success(5000)
+  +alert-error(5000)
 
   div(class="card mb-3")
     div(class="card-header") Filter and Search
@@ -70,7 +71,8 @@ block main
                     button-data-id=item.id
                   ) #{item.status}
               td 
-                button(class="btn btn-warning btn-sm") Edit 
+                a(class="btn btn-warning btn-sm"
+                  href=`${prefixAdmin}/products/edit/${item.id}`) Edit 
                 button(
                   class="btn btn-danger btn-sm ml-1"
                   data-id=item.id

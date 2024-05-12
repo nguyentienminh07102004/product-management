@@ -17,4 +17,8 @@ route.delete("/delete/:id", controller.deleteProduct);
 route.get('/create', controller.create);
 route.post('/create', upload.single('thumbnail'), validate.createPost, controller.createProduct);
 
+// edit products
+route.get('/edit/:id', controller.edit);
+route.patch('/edit/:id', upload.single('thumbnail'), validate.createPost, controller.updateProduct);
+
 module.exports = route;
