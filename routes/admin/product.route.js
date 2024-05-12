@@ -1,6 +1,7 @@
 const express = require("express");
 const controller = require("../../controllers/admin/products.controller.js");
 const multer = require('multer');
+const validate = require('../../validates/admin/products.validate.js');
 
 const route = express.Router();
 const upload = multer({ dest: "./public/admin/uploads/" });
@@ -14,6 +15,6 @@ route.delete("/delete/:id", controller.deleteProduct);
 
 // create products
 route.get('/create', controller.create);
-route.post('/create', upload.single('thumbnail'), controller.createProduct);
+route.post('/create', upload.single('thumbnail'), validate.createPost, controller.createProduct);
 
 module.exports = route;

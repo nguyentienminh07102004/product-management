@@ -105,6 +105,13 @@ const create = (req, res) => {
 
 // [POST] /admin/products/createProduct
 const createProduct = async (req, res) => {
+  // Validate product -> check các thuộc tính của sản phẩm có phù hợp không trước khi gửi
+  if(!req.body.title){
+    req.flash('error', 'Please enter your title');
+    res.redirect('back');
+    return; // -> để không chạy các câu lệnh tiếp theo
+  }
+
   // Cập nhật lại giá trị cho price, discount và stock là kiểu number
   req.body.price = parseInt(req.body.price);
   req.body.stock = parseInt(req.body.stock);
@@ -128,8 +135,9 @@ const createProduct = async (req, res) => {
   // Như trong video thì làm trong model
 
   // Chèn link ảnh vào
-  req.body.thumbnail = `/admin/uploads/${req.file.filename}`;
-
+  if(req.file){
+    req.body.thumbnail = `/admin/uploads/${req.file.filename}`; // Tải code vào thư mục uploads
+  }
   // Insert products vào db và tạo ra flash báo thành công
   // Tạo mới sản phẩm
   try{
