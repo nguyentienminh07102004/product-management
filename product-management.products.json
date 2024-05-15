@@ -1,0 +1,339 @@
+[{
+  "_id": {
+    "$oid": "6622677798b801c21ac66d64"
+  },
+  "title": "Doraemon movie 25",
+  "description": "Nobita và vương quốc chó mèo",
+  "price": 12,
+  "discountPercentage": 23,
+  "stock": 94,
+  "thumbnail": "/admin/uploads/78c03b1b266c34849ff21bb731e37dc4",
+  "status": "active",
+  "position": 23,
+  "deleted": false,
+  "deletedAtTime": {
+    "$date": "2024-05-06T05:18:53.177Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-12T18:17:10.253Z"
+  },
+  "slug": "doraemon-movie-25",
+  "deletedAt": {
+    "$date": "2024-05-13T08:38:23.470Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6622677798b801c21ac66d65"
+  },
+  "title": "iPhone X",
+  "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+  "price": 899,
+  "discountPercentage": 17.94,
+  "stock": 34,
+  "thumbnail": "https://cdn.tgdd.vn/Files/2017/11/01/1037765/iphone-x-1_800x499.jpg",
+  "status": "active",
+  "position": 3,
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-05-06T12:07:35.760Z"
+  },
+  "deletedAt": {
+    "$date": "2024-05-13T08:33:33.674Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6622677798b801c21ac66d66"
+  },
+  "title": "Samsung Universe 9",
+  "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+  "price": 1249,
+  "discountPercentage": 15.46,
+  "stock": 36,
+  "thumbnail": "https://admin.hyperce.io/assets/thumbnail__12__preview.jpg?w=800",
+  "status": "active",
+  "position": 3,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "6622677798b801c21ac66d67"
+  },
+  "title": "OPPOF19",
+  "description": "OPPO F19 is officially announced on April 2021.",
+  "price": 280,
+  "discountPercentage": 17.91,
+  "stock": 123,
+  "thumbnail": "https://cdn.tgdd.vn/Products/Images/42/235244/oppo-f19-600x600.jpg",
+  "status": "active",
+  "position": 10,
+  "deleted": false,
+  "deletedAtTime": {
+    "$date": "2024-05-06T05:18:42.120Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-06T05:18:42.125Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6622677798b801c21ac66d68"
+  },
+  "title": "Huawei P30",
+  "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+  "price": 499,
+  "discountPercentage": 10.58,
+  "stock": 32,
+  "thumbnail": "https://m.media-amazon.com/images/I/61TsiAtMVQL._AC_SL1000_.jpg",
+  "status": "active",
+  "position": 5,
+  "deleted": false,
+  "deletedAtTime": {
+    "$date": "2024-04-30T22:06:37.605Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6628b22d37fb546044292e5c"
+  },
+  "title": "Doraemon movie 2023",
+  "description": "Nobita và vùng đất lý tưởng trên bầu trời",
+  "price": 12,
+  "discountPercentage": 12.3,
+  "stock": 10211,
+  "thumbnail": "/admin/uploads/ad0cea8a970eed610f1196306590a738",
+  "status": "active",
+  "position": 27,
+  "deleted": false,
+  "slug": "doraemon-movie-2023",
+  "updatedAt": {
+    "$date": "2024-05-15T05:00:37.971Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6628b22d37fb546044292e5d"
+  },
+  "title": "Doraemon movie 27",
+  "description": "",
+  "price": 12,
+  "discountPercentage": 23,
+  "stock": 123,
+  "thumbnail": "/admin/uploads/b5f889f074a8af32f50437bf57996dee",
+  "status": "active",
+  "position": 24,
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-05-12T18:36:29.000Z"
+  },
+  "slug": "doraemon-movie-27"
+},
+{
+  "_id": {
+    "$oid": "662fdc1ccd76d763e2fd4381"
+  },
+  "title": "Doraemon movie 23",
+  "description": "",
+  "price": 12,
+  "discountPercentage": 23,
+  "stock": 134,
+  "thumbnail": "/admin/uploads/4e7b81c467acce0b991e9b7b9e3cf4c7",
+  "status": "active",
+  "position": 25,
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-05-12T18:33:33.521Z"
+  },
+  "slug": "doraemon-movie-23"
+},
+{
+  "_id": {
+    "$oid": "662fdc1ccd76d763e2fd4383"
+  },
+  "title": "iPhone 15",
+  "description": "iPhone 15 và iPhone 15 Plus là điện thoại thông minh được thiết kế và tiếp thị bởi Apple Inc. Chúng là thế hệ thứ mười bảy của iPhone, kế nhiệm iPhone 14. Bản phát hành của chúng được công bố vào ngày 12 tháng 9 năm 2023, cùng với biến thể 15 Pro and Pro Max, Apple Watch Series 9 và Apple Watch Ultra 2.",
+  "price": 1000,
+  "discountPercentage": 12.96,
+  "stock": 94,
+  "thumbnail": "/admin/uploads/2d20cc70c7e512438dea7f3cc907f612",
+  "status": "active",
+  "position": 21,
+  "deleted": false,
+  "slug": "iphone-15",
+  "updatedAt": {
+    "$date": "2024-05-12T18:07:32.871Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "662fdc1ccd76d763e2fd4384"
+  },
+  "title": "Doraemon movie 12",
+  "description": "Nobita and the Island of Miracles",
+  "price": 12,
+  "discountPercentage": 23,
+  "stock": 94,
+  "thumbnail": "/admin/uploads/3f89b610b3c6b3f68af04196b0e2aa1b",
+  "status": "active",
+  "position": 22,
+  "deleted": false,
+  "slug": "doraemon-movie-12",
+  "updatedAt": {
+    "$date": "2024-05-12T18:15:37.894Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "662fdc1ccd76d763e2fd4385"
+  },
+  "title": "Doraemon movie 22",
+  "description": "Doraemon Movie HD Wallpapers - Wallpaper Cave",
+  "price": 12,
+  "discountPercentage": 23,
+  "stock": 123,
+  "thumbnail": "/admin/uploads/e64824201e730ebacff69ae8b63fe7c7",
+  "status": "active",
+  "position": 26,
+  "deleted": false,
+  "slug": "doraemon-movie-22",
+  "updatedAt": {
+    "$date": "2024-05-12T18:20:45.889Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "662fdc1ccd76d763e2fd438c"
+  },
+  "title": "iPhone 9",
+  "description": "An apple mobile which is nothing like apple",
+  "price": 549,
+  "discountPercentage": 12.96,
+  "stock": 94,
+  "thumbnail": "https://cdn.tgdd.vn/Files/2018/04/29/1085239/maxresdefault_800x450.jpg",
+  "status": "active",
+  "position": 1,
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-05-12T18:20:55.705Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "663839394f3e30996116bb29"
+  },
+  "title": "Doraemon",
+  "description": "Chồn xanh",
+  "price": 12,
+  "discountPercentage": 23,
+  "stock": 45,
+  "thumbnail": "https://cdn.popsww.com/blog/sites/2/2021/03/doraemon-wiki-1920x1080-1920x1080.jpg",
+  "status": "inactive",
+  "position": 21,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "66383bfdebad8648ad930204"
+  },
+  "title": "Nobita",
+  "description": "nobita",
+  "price": 12,
+  "discountPercentage": 23,
+  "stock": 34,
+  "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2U-4UUC1eBmUPn7cpWVJBktJVQnfggG5Z4VuHVOtLnw&s",
+  "status": "inactive",
+  "position": 19,
+  "deleted": false,
+  "__v": 0,
+  "updatedAt": {
+    "$date": "2024-05-06T12:08:48.786Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "66383f95a756c875c7f13464"
+  },
+  "title": "Jaian",
+  "description": "Jaian là một nhân vật trong truyện tranh và loạt phim hoạt hình Doraemon của tác giả Fujiko Fujio. Jaian là một cậu bé học cùng lớp với Nobita. Cậu sinh ngày 15 tháng 6 và không rõ năm sinh. Jaian không nhớ nổi năm sinh của mình. Tuy nhiên, vì học cùng lớp với Nobita nên cũng có thể coi Jaian sinh năm 1964 (năm sinh của Nobita).",
+  "price": 12,
+  "discountPercentage": 23,
+  "stock": 34,
+  "thumbnail": "/admin/uploads/42df29f422db6cec827366fbe2811051",
+  "status": "active",
+  "position": 21,
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-05-06T02:25:25.263Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-12T18:08:23.928Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66385e972a9b8c2199e7ca4e"
+  },
+  "title": " Doraemon movie 2",
+  "description": "Doraemon movie 2 - Nobita và lịch sử khai phá vũ trụ",
+  "price": 12,
+  "discountPercentage": 23,
+  "stock": 34,
+  "thumbnail": "/admin/uploads/3ce51e1a8681c75def30d91550424dc9",
+  "status": "active",
+  "position": 20,
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-05-06T04:37:43.851Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-12T18:08:55.609Z"
+  },
+  "slug": "doraemon-movie-2",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6638c1b4a146b30edad9e9bd"
+  },
+  "title": "Doraemon movie",
+  "description": "Movie 5",
+  "price": 12,
+  "discountPercentage": 23,
+  "stock": 11,
+  "thumbnail": "/admin/uploads/d001e47e3b3883c2d8750440e20b511f",
+  "status": "active",
+  "position": 19,
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-05-06T11:40:36.252Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-12T18:10:39.218Z"
+  },
+  "slug": "doraemon-movie-Vw1DSBKDe",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66408dc0ae8e085a5bd7b83c"
+  },
+  "title": "Doraemon movie 40",
+  "description": "",
+  "price": 12,
+  "discountPercentage": 23,
+  "stock": 233,
+  "thumbnail": "/admin/uploads/438b948b65a24ad1315c834722f5ac66",
+  "status": "active",
+  "position": 20,
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-05-12T09:37:04.526Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-12T18:08:35.196Z"
+  },
+  "slug": "doraemon-movie-40",
+  "__v": 0
+}]
