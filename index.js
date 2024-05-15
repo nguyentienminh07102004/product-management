@@ -13,7 +13,7 @@ const database = require('./config/database.js');
 
 const port = process.env.PORT;
 
-app.set("views", "./views");
+app.set("views", `${__dirname}/views`);
 app.set("view engine", "pug");
 
 // Flash
@@ -32,7 +32,7 @@ app.use(bodyParse.urlencoded({ extended: false }));
 
 database.connect();
 
-app.use(express.static("public"));
+app.use(express.static(`${__dirname}/public`));
 
 const routes = require("./routes/client/index.route.js");
 const adminRoutes = require("./routes/admin/index.route.js");
