@@ -1,7 +1,7 @@
 const Products = require("../../models/product.model.js");
 
 // [GET] /products
-module.exports.index = async (req, res) => {
+const index = async (req, res) => {
   const products = await Products.find({
     status: "active",
     deleted: false
@@ -17,3 +17,28 @@ module.exports.index = async (req, res) => {
     products: newProducts
   });
 };
+
+//[GET] /products/:slug
+const detailProduct = async (req, res) => {
+    try{
+      const find = {
+        deleted: false,
+        status: "active",
+        slug: req.params.slug
+      }
+    
+      const product = await Products.findOne(find);
+      
+      console.log(product);
+  
+      res.render('client/pages/products/detail.pug', {
+        title: product.title,
+        product: product
+      });
+    }catch(error){
+      console.log(error);
+      req.flash('error', 'Error! Please try again');
+      res.redirect('/products');
+    }
+}
+module.exports = { index, detailProduct };

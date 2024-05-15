@@ -9,12 +9,13 @@ block main
     .row 
       each value in products
         .col-4.mb-13
-          .product-item 
-            .inner-image 
-              img(src=value.thumbnail, 
-              alt=value.title)
-            div(class="inner-content")
-              h3(class="inner-title") #{value.title}
-              .inner-price-new #{value.price}$
-              .inner-price-old #{value.deletePrice}$
-              .inner-discount -#{value.discountPercentage}%
+          a(href=`/products/${value.slug}`)
+            .product-item 
+              .inner-image 
+                img(src=value.thumbnail, 
+                alt=value.title)
+              div(class="inner-content")
+                h3(class="inner-title") #{value.title}
+                .inner-price-new #{value.price}$
+                .inner-price-old #{value.deletePrice}$
+                .inner-discount -#{value.discountPercentage}%
