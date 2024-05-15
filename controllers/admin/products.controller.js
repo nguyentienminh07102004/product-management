@@ -197,4 +197,25 @@ const updateProduct = async (req, res) => {
   }
 }
 
-module.exports = { index, changeStatus, changeMulti, deleteProduct, create, createProduct, edit, updateProduct };
+// [GET] /admin/products/detail/:id
+const detailProduct = async (req, res) => {
+  try {
+    const find = {
+      deleted: false,
+      _id: req.params.id
+    }
+  
+    const product = await Products.findOne(find);
+  
+    console.log(product);
+  
+    res.render('admin/pages/products/detail.pug', {
+      title: `${product.title}`,
+      product: product
+    });
+  } catch (error) {
+    req.flash('error', "Error! Please try again");
+    res.redirect(`${systemConfig.prefixAdmin}/products`);
+  }
+}
+module.exports = { index, changeStatus, changeMulti, deleteProduct, create, createProduct, edit, updateProduct, detailProduct };

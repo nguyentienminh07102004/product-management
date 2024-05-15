@@ -21,4 +21,7 @@ route.post('/create', upload.single('thumbnail'), validate.createPost, controlle
 route.get('/edit/:id', controller.edit);
 route.patch('/edit/:id', upload.single('thumbnail'), validate.createPost, controller.updateProduct);
 
+// Detail products
+route.get('/detail/:id', controller.detailProduct);
+
 module.exports = route;
