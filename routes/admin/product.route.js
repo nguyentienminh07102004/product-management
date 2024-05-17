@@ -2,9 +2,10 @@ const express = require("express");
 const controller = require("../../controllers/admin/products.controller.js");
 const multer = require('multer');
 const validate = require('../../validates/admin/products.validate.js');
+const storage = require('../../helpers/storage.js');
 
 const route = express.Router();
-const upload = multer({ dest: "./public/admin/uploads/" });
+const upload = multer({ storage: storage });
 
 route.get("/", controller.index);
 
