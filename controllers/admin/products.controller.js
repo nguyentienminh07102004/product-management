@@ -135,10 +135,6 @@ const createProduct = async (req, res) => {
   // -> req.body.deleted = false;
   // Như trong video thì làm trong model
 
-  // Chèn link ảnh vào
-  if(req.file){
-    req.body.thumbnail = `/admin/uploads/${req.file.filename}`; // Tải code vào thư mục uploads
-  }
   // Insert products vào db và tạo ra flash báo thành công
   // Tạo mới sản phẩm
   try{
