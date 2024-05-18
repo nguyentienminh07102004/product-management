@@ -39,3 +39,38 @@ if(buttonDelete.length > 0){
   })
 }
 // End delete item
+
+
+// sort Select
+const SortSelect = document.querySelector('[sort]');
+if(SortSelect){
+  let url = new URL(window.location.href);
+  const sortSelect = SortSelect.querySelector('[sort-select]');
+  const sortClear = SortSelect.querySelector('[sort-clear]');
+  sortSelect.addEventListener('change', (evt) => { 
+    const [sortKey, sortValue] = evt.target.value.split('-');
+    url.searchParams.set('sortKey', sortKey);
+    url.searchParams.set('sortValue', sortValue);
+    console.log(url.href);
+    window.location.href = url.href;
+  });
+
+  sortClear.addEventListener('click', (evt) => {
+    url.searchParams.delete("sortKey");
+    url.searchParams.delete("sortValue");
+    window.location.href = url.href;
+  });
+
+  const sortKey = url.searchParams.get("sortKey");
+  const sortValue = url.searchParams.get("sortValue");
+
+  // Check nếu có tồn tại sortKey và sortValue 
+  if(sortKey && sortValue){
+    // Tìm ra option chứa value tương ứng
+    let optionSelected = sortSelect.querySelector(`option[value='${sortKey}-${sortValue}']`);
+    // Gán giá trị true cho selected
+    optionSelected.selected = true;
+  }
+}
+
+// End sort Select

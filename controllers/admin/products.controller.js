@@ -29,10 +29,23 @@ const index = async (req, res) => {
   };
   const countProducts = await Products.countDocuments(find);
 
+  // Sort
+  let sort = {};
+  if(req.query.sortKey && req.query.sortValue){
+    const sortKey = req.query.sortKey;
+    const sortValue = req.query.sortValue;
+    sort[sortKey] = sortValue;
+    console.log(sort);
+  } else {
+    sort = { position: -1 };
+  }
+  sort.updateAt = -1;
+  // End sort
+
   pagination(objectPagination, req.query, countProducts);
   // Tìm kiếm sản phẩm
   // Limit là giới hạn số sản phẩm tìm được còn skip là bỏ qua n sản phẩm để tìm từ sản phẩm tiếp theo. => Phân trang chia trang bằng limit và chuyển trang bằng skip
-  let products = await Products.find(find).limit(objectPagination.limitItem).skip(objectPagination.skip).sort({position: -1, updatedAt: -1});
+  let products = await Products.find(find).sort(sort).limit(objectPagination.limitItem).skip(objectPagination.skip);
   
   res.render("admin/pages/products/index.pug", {
     title: "Products Admin Page",

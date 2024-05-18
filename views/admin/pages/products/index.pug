@@ -4,6 +4,7 @@ include ../../mixins/search.pug
 include ../../mixins/pagination.pug
 include ../../mixins/form-changemulti.pug
 include ../../mixins/alert.pug
+include ../../mixins/sortSelect.pug
 
 block main 
   h1 This is Products Admin Page
@@ -20,6 +21,8 @@ block main
 
         div(class="col-6")
           +search(keyword)
+  
+  +sortSelect()
 
   div(class="card mb-3")
     div(class="card-header") Products List 

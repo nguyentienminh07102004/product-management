@@ -1,6 +1,6 @@
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
-
+// Phần này code trên trang docs của nó lên không hiểu lắm
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.API_KEY,
