@@ -1,0 +1,39 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+
+block main
+  h1(class='mb-4') Add products category
+  +alert-success(5000)
+  +alert-error(5000)
+  form(action=`${prefixAdmin}/products-category/create` id="form-create-product" method="post" enctype="multipart/form-data") 
+    div(class='form-group')
+      div(class='label' for='title') Title 
+      input(type="text", name="title" id='title' required class='form-control')
+
+    div(class='form-group')
+      div(class='label' for='_parentID') Parent Category
+      input(type="text", name="_parentID" id='_parentID' class='form-control')
+
+    div(class='form-group')
+      label(for="desc") Describle 
+      textarea(name="description" rows='5' id='desc' class='form-control tinyMCE')
+
+    div(class='form-group' upload-image)
+      label(for='thumbnail') Thumbnail
+      input(type='file' class='form-control-file' id='thumbnail' name='thumbnail' accept="image/*" upload-image-input)
+      img(src="#" upload-image-preview class="image-preview")
+
+    div(class='form-group')
+      label(for='position') Position 
+      input(type='number' class='form-control' id='position' name='position' placeholder='Auto' min='1')
+
+    div(class='form-group form-check form-check-inline')
+      input(type='radio' class='form-check-input' id='statusActive' name='status' value='active' checked)
+      label(for='statusActive' class='form-check-label') Active
+
+    div(class='form-group form-check form-check-inline')
+      input(type='radio' class='form-check-input' id='statusInactive' name='status' value='inactive')
+      label(for='statusInactive' class='form-check-label') Inactive
+
+    div(class='form-group')
+      button(type='submit' class='btn btn-success') CREATE

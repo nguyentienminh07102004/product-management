@@ -27,9 +27,9 @@ const upload = (req, res, next) => {
   
     let upload = async (req) => {
       let result = await streamUpload(req);
-      console.log(result);
+      //console.log(result);
       // Chèn link ảnh vào
-      console.log(req.file);
+      //console.log(req.body);
       req.body[req.file.fieldname] = result.url; // Tải code vào thư mục uploads
       next();
     }

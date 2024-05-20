@@ -56,6 +56,7 @@ const index = async (req, res) => {
   });
 }
 
+// [PATCH] /admin/products/:status/:id
 const changeStatus = async (req, res) => {
   const status = req.params.status;
   const id = req.params.id;
@@ -68,7 +69,7 @@ const changeStatus = async (req, res) => {
 
 }
 
-// [PATCH] /admin/products/chnage-multi
+// [PATCH] /admin/products/change-multi
 const changeMulti = async (req, res) => {
   let ids = req.body.ids.split(", ");
   let type = req.body.type;
