@@ -1,5 +1,6 @@
 const express = require('express');
 const methodOverride = require('method-override');
+const path = require("path");
 const bodyParse = require('body-parser');
 const flash = require('express-flash');
 const cookieParser = require("cookie-parser");
@@ -37,9 +38,11 @@ app.use(express.static(`${__dirname}/public`));
 const routes = require("./routes/client/index.route.js");
 const adminRoutes = require("./routes/admin/index.route.js");
 
+// tinyMCE
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+
 routes(app);
 adminRoutes(app);
-
 
 app.listen(port, () => {
   console.log(`Project open in port ${port}`);
