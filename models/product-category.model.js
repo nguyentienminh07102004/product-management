@@ -4,7 +4,7 @@ mongoose.plugin(slug);
 
 const productsCategory = new mongoose.Schema({
   title: String,
-  _parentID: String,
+  _parentID: { type: String, default: "" },
   description: String,
   thumbnail: String,
   status: String,

@@ -1,5 +1,6 @@
 extends ../../layouts/default.pug
 include ../../mixins/alert.pug
+include ../../mixins/select_tree.pug
 
 block main
   h1(class='mb-4') Add products category
@@ -7,13 +8,16 @@ block main
   +alert-error(5000)
   form(action=`${prefixAdmin}/products-category/create` id="form-create-product" method="post" enctype="multipart/form-data") 
     div(class='form-group')
-      div(class='label' for='title') Title 
+      label(for='title') Title 
       input(type="text", name="title" id='title' required class='form-control')
 
     div(class='form-group')
-      div(class='label' for='_parentID') Parent Category
-      input(type="text", name="_parentID" id='_parentID' class='form-control')
-
+      label(for='_parentID') Parent Category
+      select(name="_parentID" id="_parentID" class="form-control")
+        option(value="") ---Parent Category---
+        if(productsCategory)
+          +select_tree(productsCategory)
+          
     div(class='form-group')
       label(for="desc") Describle 
       textarea(name="description" rows='5' id='desc' class='form-control tinyMCE')

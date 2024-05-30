@@ -1,0 +1,6 @@
+mixin select_tree(productsCategory, level = 1)
+  each category in productsCategory
+    -const prefix = Array(level + 1).join("--")
+    option(value=`${category.id}`) #{prefix} #{category.title}
+    if(category.child && category.child.length > 0)
+      +select_tree(category.child, level + 1)
